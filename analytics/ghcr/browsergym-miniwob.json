@@ -1,20 +1,47 @@
 {
-  "generated_at": "2026-06-09T22:44:55Z",
+  "generated_at": "2026-06-09T23:18:23Z",
   "owner": "vrtnis",
   "package": "browsergym-miniwob",
   "source_endpoint": "/user/packages/container/browsergym-miniwob/versions?per_page=100",
   "total_downloads": 0,
-  "version_count": 1,
+  "version_count": 4,
   "versions": [
+    {
+      "created_at": "2026-06-09T22:51:42Z",
+      "download_count": null,
+      "html_url": "https://github.com/users/vrtnis/packages/container/browsergym-miniwob/930926890",
+      "id": 930926890,
+      "name": "sha256:b396b10268473fdb9ba58245bb2459d905f9539bb6378e853a34d823211f543b",
+      "tags": [
+        "0.13.3-miniwob-7fd85d7"
+      ],
+      "updated_at": "2026-06-09T22:51:42Z"
+    },
+    {
+      "created_at": "2026-06-09T22:47:49Z",
+      "download_count": null,
+      "html_url": "https://github.com/users/vrtnis/packages/container/browsergym-miniwob/930918719",
+      "id": 930918719,
+      "name": "sha256:4f66190e89ada1fafa12e1cdee8d0cc4d13ad4edaf80ec3b0d33f9130822c0d7",
+      "tags": [],
+      "updated_at": "2026-06-09T22:47:49Z"
+    },
+    {
+      "created_at": "2026-06-09T22:47:45Z",
+      "download_count": null,
+      "html_url": "https://github.com/users/vrtnis/packages/container/browsergym-miniwob/930918565",
+      "id": 930918565,
+      "name": "sha256:50eead28531573eca0af3967408e8d1e71e58f4e060414fbb8f02b2629a74c71",
+      "tags": [],
+      "updated_at": "2026-06-09T22:47:45Z"
+    },
     {
       "created_at": "2026-06-09T22:30:15Z",
       "download_count": null,
       "html_url": "https://github.com/users/vrtnis/packages/container/browsergym-miniwob/930884113",
       "id": 930884113,
       "name": "sha256:c4155e559ea7d3690145c939b8203ae8053533b3ddfe5ef979bd50edc6b27c9d",
-      "tags": [
-        "0.13.3-miniwob-7fd85d7"
-      ],
+      "tags": [],
       "updated_at": "2026-06-09T22:30:15Z"
     }
   ]
