@@ -1,0 +1,36 @@
+name: publish-browsergym-miniwob
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - images/browsergym-miniwob/**
+      - .github/workflows/publish-browsergym-miniwob.yml
+
+permissions:
+  contents: read
+  packages: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Log in to GHCR
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build image
+        run: |
+          docker build \
+            -t ghcr.io/vrtnis/browsergym-miniwob:0.13.3-miniwob-7fd85d7 \
+            images/browsergym-miniwob
+
+      - name: Push image
+        run: docker push ghcr.io/vrtnis/browsergym-miniwob:0.13.3-miniwob-7fd85d7

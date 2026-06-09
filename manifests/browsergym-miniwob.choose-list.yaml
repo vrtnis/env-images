@@ -1,0 +1,18 @@
+id: browsergym/miniwob.choose-list
+type: browser-environment
+status: local-smoke
+source_repo: https://github.com/ServiceNow/BrowserGym
+package: browsergym-miniwob==0.13.3
+upstream_setup:
+  miniwob_repo: https://github.com/Farama-Foundation/miniwob-plusplus
+  miniwob_commit: 7fd85d71a4b60325c6585396ec4f48377d049838
+image:
+  local_name: agentenv/browsergym-miniwob:local
+  ghcr: ghcr.io/vrtnis/browsergym-miniwob:0.13.3-miniwob-7fd85d7
+run:
+  command: docker run --rm -it agentenv/browsergym-miniwob:local
+outputs:
+  result: none
+publication:
+  published: private-ghcr
+  notes: environment image only; no wrapper, no public docs
