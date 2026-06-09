@@ -34,3 +34,13 @@ jobs:
 
       - name: Push image
         run: docker push ghcr.io/vrtnis/browsergym-miniwob:0.13.3-miniwob-7fd85d7
+
+      - name: Make package public if supported by API
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh api \
+            --method PATCH \
+            -H "Accept: application/vnd.github+json" \
+            /user/packages/container/browsergym-miniwob \
+            -f visibility=public
