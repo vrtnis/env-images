@@ -1,0 +1,40 @@
+name: publish-minigrid
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - images/minigrid/**
+      - .github/workflows/publish-minigrid.yml
+
+permissions:
+  contents: read
+  packages: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Log in to GHCR
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build image
+        run: |
+          docker build \
+            -t ghcr.io/vrtnis/minigrid:3.1.0 \
+            images/minigrid
+
+      - name: Smoke test image
+        run: |
+          docker run --rm ghcr.io/vrtnis/minigrid:3.1.0 python -c "import gymnasium as gym, minigrid; env = gym.make('MiniGrid-Empty-5x5-v0', render_mode='rgb_array'); obs, info = env.reset(seed=0); [env.step(env.action_space.sample()) for _ in range(8)]; frame = env.render(); assert frame.ndim == 3 and frame.shape[-1] == 3; env.close(); print('ok', frame.shape)"
+
+      - name: Push image
+        run: docker push ghcr.io/vrtnis/minigrid:3.1.0

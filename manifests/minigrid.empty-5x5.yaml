@@ -1,0 +1,15 @@
+id: minigrid/empty-5x5
+type: rl-environment
+status: local-smoke
+source_repo: https://github.com/Farama-Foundation/Minigrid
+package: minigrid==3.1.0
+image:
+  local_name: agentenv/minigrid:local
+  ghcr: ghcr.io/vrtnis/minigrid:3.1.0
+run:
+  command: docker run --rm -it agentenv/minigrid:local
+outputs:
+  result: none
+publication:
+  published: private-ghcr
+  notes: environment image only; no wrapper, no public docs
