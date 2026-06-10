@@ -1,0 +1,21 @@
+id: vizdoom/basic
+type: rl-environment
+status: local-smoke
+source_repo: https://github.com/Farama-Foundation/ViZDoom
+package: vizdoom==1.3.0
+environment:
+  scenario: basic.cfg
+  scenario_path: /usr/local/lib/python3.11/site-packages/vizdoom/scenarios/basic.cfg
+assets:
+  source: bundled-with-vizdoom
+  docs: https://vizdoom.farama.org/
+image:
+  local_name: agentenv/vizdoom:local
+  ghcr: ghcr.io/vrtnis/vizdoom:1.3.0
+run:
+  command: docker run --rm -it agentenv/vizdoom:local
+outputs:
+  result: none
+publication:
+  published: private-ghcr
+  notes: environment image only; no wrapper, public upstream docs
